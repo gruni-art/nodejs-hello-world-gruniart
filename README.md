@@ -1,62 +1,164 @@
-# 1 - Hello world
+### Using Google Cloud Shell
 
-This folder contains the sample code for the [Hello world][step-1]
-tutorial. Please refer to the tutorial for instructions on configuring, running,
-and deploying this sample.
+Cloud Shell is a built-in command line tool for the console. We're going to use Cloud Shell to deploy our app.
 
-[step-1]: https://cloud.google.com/nodejs/getting-started/hello-world
+1. Using Google Cloud Shell
 
-# Simple instructions
+Open the Google Cloud Shell on the Web console using the [>_] button.
 
-1.  Install [Node.js](https://nodejs.org/en/).
+You will be prompted as follows:
 
-    * Optional: Install [Yarn](https://yarnpkg.com/).
+```javascript
+Welcome to Cloud Shell! Type "help" to get started.
+lana_gruni@long-temple-164810:~$
+```
 
-1.  Install [git](https://git-scm.com/).
-1.  Create a [Google Cloud Platform project](https://console.cloud.google.com).
-1.  Install the [Google Cloud SDK](https://cloud.google.com/sdk/).
+where 'lana_gruni' is the user with which you are logged in, and 'long-temple-164810' is the project name.
 
-    * After downloading the SDK, initialize it:
+2. Clone the sample code
 
-            gcloud init
+Use Cloud Shell to clone and navigate to the "Hello World" code. The sample code is cloned from your project repository to the Cloud Shell.
 
-1.  Clone the repository:
+In Cloud Shell enter:
 
-        // WAS git clone https://github.com/GoogleCloudPlatform/nodejs-getting-started.git
-        git clone https://github.com/gruni-art/nodejs-hello-world-gruniart
+```javascript
+TUTORIALDIR=~/src/long-temple-164810/nodejs_mvms_quickstart-2017-04-22-21-02
+```
 
-1.  Change directory:
+Clone a sample repository:
 
-        cd nodejs-getting-started/1-hello-world
+```javascript
+git clone https://github.com/gruni-art/nodejs-hello-world-gruniart.git $TUTORIALDIR
+```
 
-1.  Install dependencies using NPM or Yarn:
+You will be prompted with:
 
-    * Using NPM:
+```javascript
+Cloning into '/home/lana_gruni/src/long-temple-164810/nodejs_mvms_quickstart-2017-04-22-15-26'...
+remote: Counting objects: 1540, done.
+remote: Compressing objects: 100% (79/79), done.
+remote: Total 1540 (delta 67), reused 21 (delta 21), pack-reused 1438
+Receiving objects: 100% (1540/1540), 460.51 KiB | 0 bytes/s, done.
+Resolving deltas: 100% (1071/1071), done.
+```
 
-            npm install
+Switch to the tutorial directory:
 
-    * Using Yarn:
+```javascript
+cd $TUTORIALDIR/1-hello-world
+```
 
-            yarn install
+You will be prompted with:
 
-1.  Start the app using NPM or Yarn:
+```javascript
+lana_gruni@long-temple-164810:~/src/long-temple-164810/nodejs_mvms_quickstart-2017-04-22-15-26/1-hello-world$
+```
 
-    * Using NPM:
+Testing your app
 
-            npm start
+1. Install npm packages
 
-    * Using Yarn:
+We will install the npm packages on Cloud Shell in order to test run the Node.js app.
 
-            yarn start
+To install npm packages, enter:
 
-1.  View the app at [http://localhost:8080](http://localhost:8080).
+```javascript
+npm install --production
+```
 
-1.  Stop the app by pressing `Ctrl+C`.
+2 Test your app on Cloud Shell
 
-1.  Deploy the app:
+Cloud Shell lets you test your app before deploying to make sure it's running as intended, just like debugging on your local machine.
 
-        gcloud app deploy
+To test your app enter:
 
-1.  View the deployed app at [https://YOUR_PROJECT_ID.appspot.com](https://YOUR_PROJECT_ID.appspot.com).
+```javascript
+npm start
+```
 
-To clean up follow this link https://cloud.google.com/nodejs/getting-started/delete-tutorial-resources?hl=en_US&_ga=1.26616638.204866641.1492336447
+You will be prompted with:
+
+```javascript
+> nodejs-getting-started@1.0.0 start /home/lana_gruni/src/long-temple-164810/nodejs_mvms_quickstart-2017-04-22-15-26/1-hello-world
+> node app.js
+
+App listening on port 8081
+```
+
+3 Preview your app with "Web preview"
+
+Your app is now running on Cloud Shell. You can access the app by using "Web preview" [^]  to connect to port 8081.
+
+The URL will be something like https://8081-dot-2352367-dot-devshell.appspot.com/?authuser=0
+
+The [^] button is found along the menu bar along the Cloud Shell.
+
+4 Terminating the preview instance
+
+Terminate the instance of the application by pressing Ctrl+C in the Cloud Shell.
+
+Last steps
+
+1 Deploying with Cloud Shell
+
+You can use Cloud Shell to deploy your app. To deploy your app enter:
+
+```javascript
+gcloud app deploy --project long-temple-164810
+```
+
+You will be prompted with:
+
+```javascript
+You are about to deploy the following services:
+ - long-temple-164810/default/20170422t170830 (from [/home/lana_gruni/src/long-temple-164810/nodejs_mvms_quickstart-2017-04-22-15-26/1-hello-world/app.yaml])
+     Deploying to URL: [https://long-temple-164810.appspot.com]
+
+Do you want to continue (Y/n)?  
+```
+
+Confirm with: Y <followed by ENTER>
+
+You will be prompted with:
+
+```javascript
+...
+DONE
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Updating service [default]...done.                                                                                                                                         
+Deployed service [default] to [https://long-temple-164810.appspot.com]
+
+You can stream logs from the command line by running:
+  $ gcloud app logs tail -s default
+
+To view your application in the web browser run:
+  $ gcloud app browse
+lana_gruni@long-temple-164810:~/src/long-temple-164810/nodejs_mvms_quickstart-2017-04-22-15-26/1-hello-world$ 
+```
+
+The app will be deployed.
+
+2 Visit your app. The first time, this may take a while!
+
+Open a web browser and browse to http://long-temple-164810.appspot.com/
+
+The page will show: 'Hello, world!'
+
+Congratulations! Your app has been deployed. The default URL of your app is long-temple-164810.appspot.com  Click the URL to visit it.
+
+NOTE: The app is now running in the cloud. We will show you how to disable the app to avoid potential charges.
+
+3 View your app's status
+
+You can check in on your app by monitoring its status on the App Engine dashboard.
+
+Open the menu on the left side of the console and select App Engine.
+
+Congratulations!
+
+You have successfully deployed an App Engine application! Here are some next steps:
+
+1 Disable your tutorial project
+
+You should disable your project to avoid additional charges.
