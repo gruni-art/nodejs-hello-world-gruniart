@@ -58,3 +58,5 @@ and deploying this sample.
         gcloud app deploy
 
 1.  View the deployed app at [https://YOUR_PROJECT_ID.appspot.com](https://YOUR_PROJECT_ID.appspot.com).
+
+To clean up follow this link https://cloud.google.com/nodejs/getting-started/delete-tutorial-resources?hl=en_US&_ga=1.26616638.204866641.1492336447
