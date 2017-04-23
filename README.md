@@ -17,7 +17,7 @@ where 'lana_gruni' is the user with which you are logged in, and 'long-temple-16
 
 2. Clone the sample code
 
-Use Cloud Shell to clone and navigate to the "Hello World" code. The sample code is cloned from your project repository to the Cloud Shell.
+Use Cloud Shell to clone and navigate to the code. The sample code is cloned from your project repository to the Cloud Shell.
 
 In Cloud Shell enter:
 
